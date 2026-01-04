@@ -1,0 +1,87 @@
+/* 1. CSS Reset + box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. CSS variables */
+:root {
+  --red: #ff6b57;
+  --yellow: #ffb02e;
+  --purple: #6a3d9a;
+  --blue: #4f86b5;
+  --green: #138000;
+  --border: 4px solid black;
+}
+
+/* 3. Flexbox + Grid hybrid */
+.holder {
+  display: flex;
+  flex-wrap: wrap;              /* flex */
+  width: 720px;
+  border: var(--border);
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 4. Base item styling */
+.item {
+  display: grid;                /* grid */
+  place-items: center;          /* grid trick */
+  font-size: 32px;
+  font-weight: 700;
+  height: 120px;
+  color: black;
+}
+
+/* 5. order + flex-basis */
+.item:nth-child(1) {
+  order: 1;
+  flex-basis: 50%;
+  background: var(--red);
+}
+
+.item:nth-child(5) {
+  order: 2;
+  flex-basis: 50%;
+  background: var(--yellow);
+}
+
+.item:nth-child(3) {
+  order: 3;
+  flex-basis: calc(100% / 3);   /* calc() */
+  background: var(--purple);
+}
+
+.item:nth-child(2) {
+  order: 4;
+  flex-basis: calc(100% / 3);
+  background: var(--blue);
+}
+
+.item:nth-child(4) {
+  order: 5;
+  flex-basis: calc(100% / 3);
+  background: var(--green);
+}
+
+/* 6. Pseudo-class */
+.item:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* 7. Pseudo-element */
+.item::after {
+  content: "";
+  position: absolute;
+}
+
+/* 8. Responsive (media query) */
+@media (max-width: 768px) {
+  .holder {
+    width: 100%;
+  }
+}
