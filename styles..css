@@ -1,11 +1,11 @@
-/* 1. CSS Reset + box-sizing */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2. CSS variables */
+
 :root {
   --red: #ff6b57;
   --yellow: #ffb02e;
@@ -15,10 +15,10 @@
   --border: 4px solid black;
 }
 
-/* 3. Flexbox + Grid hybrid */
+
 .holder {
   display: flex;
-  flex-wrap: wrap;              /* flex */
+  flex-wrap: wrap;              
   width: 720px;
   border: var(--border);
   border-radius: 30px;
@@ -26,17 +26,17 @@
   background: #000;
 }
 
-/* 4. Base item styling */
+
 .item {
-  display: grid;                /* grid */
-  place-items: center;          /* grid trick */
+  display: grid;                
+  place-items: center;          
   font-size: 32px;
   font-weight: 700;
   height: 120px;
   color: black;
 }
 
-/* 5. order + flex-basis */
+
 .item:nth-child(1) {
   order: 1;
   flex-basis: 50%;
@@ -51,7 +51,7 @@
 
 .item:nth-child(3) {
   order: 3;
-  flex-basis: calc(100% / 3);   /* calc() */
+  flex-basis: calc(100% / 3);   
   background: var(--purple);
 }
 
@@ -67,19 +67,19 @@
   background: var(--green);
 }
 
-/* 6. Pseudo-class */
+
 .item:hover {
   filter: brightness(1.1);
   cursor: pointer;
 }
 
-/* 7. Pseudo-element */
+
 .item::after {
   content: "";
   position: absolute;
 }
 
-/* 8. Responsive (media query) */
+
 @media (max-width: 768px) {
   .holder {
     width: 100%;
